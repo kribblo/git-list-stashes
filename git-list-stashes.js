@@ -15,6 +15,11 @@ if(argv.v || argv.version) {
     process.exit(0);
 }
 
+if(argv.h || argv.help) {
+    printHelp();
+    process.exit(0);
+}
+
 if(argv._.length < 1) {
     console.warn('Must give a path!');
     process.exit(1);
@@ -67,4 +72,12 @@ function checkOneWorkspace(dir) {
             });
         }
     });
+}
+
+function printHelp() {
+    console.log('git-list-stashes /path/to/workspace [...more paths] [options]');
+    console.log();
+    console.log('Options:');
+    console.log('  -v, --version    print version');
+    console.log('  -h, --help       print help');
 }
