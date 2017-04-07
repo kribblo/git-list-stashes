@@ -1,0 +1,20 @@
+{
+    "name": "git-list-stashes",
+    "version": "0.0.1",
+    "bin": "git-list-stashes.js",
+    "scripts": {
+        "lint": "eslint .",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["git", "stash", "cli"],
+    "author": "Kristoffer Lundén <kristoffer.lunden@gmail.com>",
+    "license": "ISC",
+    "description": "Finds and lists open git stashes in many git repositories.",
+    "dependencies": {
+        "glob": "^7.1.1",
+        "minimist": "^1.2.0"
+    },
+    "devDependencies": {
+        "eslint": "^3.19.0"
+    }
+}
