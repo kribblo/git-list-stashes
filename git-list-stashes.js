@@ -23,8 +23,7 @@ if(argv.h || argv.help) {
 const workspaces = argv._.map(ws => path.resolve(ws));
 
 if(workspaces.length < 1) {
-    console.warn('Must give a path!');
-    process.exit(1);
+    workspaces.push(process.cwd());
 }
 
 const messages = [];
