@@ -20,23 +20,25 @@ if(argv.h || argv.help) {
     process.exit(0);
 }
 
-if(argv._.length < 1) {
+const workspaces = argv._.map(ws => path.resolve(ws));
+
+if(workspaces.length < 1) {
     console.warn('Must give a path!');
     process.exit(1);
 }
 
 const messages = [];
 
-argv._.forEach(dir => {
-    if(checkIsDirectory(dir)) {
-        checkOneWorkspace(dir);
+workspaces.forEach(ws => {
+    if(checkIsDirectory(ws)) {
+        checkOneWorkspace(ws);
     } else {
-        messages.push(`${dir} is not a directory!\n`);
+        messages.push(`${ws} is not a directory!\n`);
     }
 });
 
 if(messages.length > 0) {
-    console.warn(messages.join('\n'));
+    console.warn(messages.join('\n'), '\n');
     process.exit(1);
 }
 
@@ -49,11 +51,13 @@ function checkIsDirectory(directory) {
     }
 }
 
-function checkOneWorkspace(dir) {
-    const repositories = glob.sync('*/.git', {cwd: dir, absolute: true}).map(path.dirname);
+function checkOneWorkspace(ws) {
+    const repositories = glob.sync('*/.git', {cwd: ws, absolute: true}).map(path.dirname);
 
+    const foundMessage = repositories.length > 0
+        ? `Found ${repositories.length} git repositories at ${ws}, checking for stashes:`
+        : `No git repositories found at ${ws}`;
 
-    const foundMessage = `Found ${repositories.length} git repositories at ${dir}, checking for stashes:`;
     messages.push(foundMessage);
 
     repositories.forEach(repo => {
