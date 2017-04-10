@@ -84,7 +84,7 @@ function checkOneWorkspace(ws) {
 }
 
 function printHelp() {
-    console.log('git-list-stashes /path/to/workspace [...more paths] [options]');
+    console.log('git-list-stashes [/path/to/workspace ...more paths ...or path/to/repo] [options]');
     console.log();
     console.log('Options:');
     console.log('  -v, --version    print version');
