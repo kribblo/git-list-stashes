@@ -52,7 +52,7 @@ function checkIsDirectory(directory) {
 }
 
 function checkOneWorkspace(ws) {
-    const repositories = glob.sync('*/.git', {cwd: ws, absolute: true}).map(path.dirname);
+    const repositories = glob.sync('**/.git/', {cwd: ws, absolute: true}).map(path.dirname);
 
     const foundMessage = repositories.length > 0
         ? `Found ${repositories.length} git repositories at ${ws}, checking for stashes:`
