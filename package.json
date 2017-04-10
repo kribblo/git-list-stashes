@@ -5,6 +5,7 @@
     "git-list-stashes": "git-list-stashes.js"
   },
   "scripts": {
+    "preversion": "npm run lint",
     "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
