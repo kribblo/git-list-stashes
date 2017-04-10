@@ -1,6 +1,6 @@
 {
   "name": "git-list-stashes",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "bin": {
     "git-list-stashes": "git-list-stashes.js"
   },
