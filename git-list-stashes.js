@@ -61,7 +61,7 @@ function checkOneWorkspace(ws) {
         ? `Found ${repositories.length} git repositories at ${ws}, checking for stashes:`
         : `No git repositories found at ${ws}`;
 
-    messages.push(foundMessage);
+    console.log(foundMessage);
 
     repositories.forEach(repo => {
         const stashList = childProcess.execFileSync('git', ['stash', 'list'], {cwd: repo})
@@ -77,6 +77,8 @@ function checkOneWorkspace(ws) {
             stashList.forEach(stash => {
                 messages.push(`    ${stash}`);
             });
+        } else {
+            console.log('No stashes found.');
         }
     });
 }
