@@ -77,8 +77,6 @@ function checkOneWorkspace(ws) {
             stashList.forEach(stash => {
                 messages.push(`    ${stash}`);
             });
-        } else {
-            console.log('No stashes found.');
         }
     });
 }
