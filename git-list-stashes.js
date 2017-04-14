@@ -39,6 +39,8 @@ workspaces.forEach(ws => {
 if(messages.length > 0) {
     console.warn(messages.join('\n'), '\n');
     process.exit(1);
+} else {
+    console.log('None found.');
 }
 
 function checkIsDirectory(directory) {
