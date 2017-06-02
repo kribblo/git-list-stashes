@@ -6,7 +6,7 @@ If you have one or a few workspaces with several git repositories, and you (or m
 
 ## Usage
 
-    git-list-stashes [/path/to/workspace ...more paths ...or path/to/repo] [options]
+    git-list-stashes [/path/to/workspace] [...more paths] [...or path/to/repo] [options]
     
 If there are any stashes found or other problems, the script exits with code 1 + writes a report to STDERR, so it can for instance be used in a script for automated checks.
   
